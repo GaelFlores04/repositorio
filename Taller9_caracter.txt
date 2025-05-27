@@ -1,0 +1,12 @@
+;imprimir @
+Direcc. inmediato:
+mov al, 64
+mov [buffer], al ; 64 + 48 = '@'
+Direcc. indirecto:
+section .data
+char db '@'
+ptr dd char
+section .text
+mov esi, [ptr]
+mov al, [esi]
+mov [buffer], al
