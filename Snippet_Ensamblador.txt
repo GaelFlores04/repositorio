@@ -1,0 +1,29 @@
+;snippet Ensamblador
+Section .text
+global _start
+_start:
+; Simula TRY
+call try_block
+; Saltar al final si no hubo "excepción"
+jmp end_program
+catch_block:
+; Simula CATCH
+mov eax, 4 ; syscall: write
+mov ebx, 1 ; file descriptor: stdout
+mov ecx, error_msg ; mensaje de error
+mov edx, 14 ; longitud
+int 0x80
+jmp end_program
+try_block:
+; simula el código dentro del try
+mov eax, 0
+cmp eax, 0
+je catch_block ; Simula excepción (error detectado)
+ret
+end_program:
+; Salida limpia
+mov eax, 1 ; syscall: exit
+xor ebx, ebx
+int 0x80
+section .data
+error_msg db 'Excepcion!', 10

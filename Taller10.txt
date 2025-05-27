@@ -1,0 +1,459 @@
+a. A
+SHL.
+; Inciso a: carácter 'A' - ASCII 65
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 65
+SHL al, 1 ; Aplicar SHL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+SHR.
+; Inciso a: carácter 'A' - ASCII 65
+
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 65
+SHR al, 1 ; Aplicar SHR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROL.
+; Inciso a: carácter 'A' - ASCII 65
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 65
+
+ROL al, 1 ; Aplicar ROL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROR.
+; Inciso a: carácter 'A' - ASCII 65
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 65
+ROR al, 1 ; Aplicar ROR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+b. 0
+SHL.
+; Inciso b: carácter '0' - ASCII 48
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 48
+SHL al, 1 ; Aplicar SHL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+SHR.
+; Inciso b: carácter '0' - ASCII 48
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 48
+SHR al, 1 ; Aplicar SHR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROL.
+; Inciso b: carácter '0' - ASCII 48
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+
+mov al, 48
+ROL al, 1 ; Aplicar ROL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROR.
+; Inciso b: carácter '0' - ASCII 48
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 48
+ROR al, 1 ; Aplicar ROR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+c. g
+SHL.
+; Inciso c: carácter 'g' - ASCII 103
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 103
+SHL al, 1 ; Aplicar SHL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+SHR.
+; Inciso c: carácter 'g' - ASCII 103
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 103
+SHR al, 1 ; Aplicar SHR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROL.
+; Inciso c: carácter 'g' - ASCII 103
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+
+mov al, 103
+ROL al, 1 ; Aplicar ROL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+ROR.
+; Inciso c: carácter 'g' - ASCII 103
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 103
+ROR al, 1 ; Aplicar ROR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+d. =
+SHL
+; Inciso d: carácter '=' - ASCII 61
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 61
+SHL al, 1 ; Aplicar SHL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+SHR.
+; Inciso d: carácter '=' - ASCII 61
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 61
+SHR al, 1 ; Aplicar SHR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROL.
+; Inciso d: carácter '=' - ASCII 61
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 61
+
+ROL al, 1 ; Aplicar ROL 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+ROR.
+; Inciso d: carácter '=' - ASCII 61
+section .data
+char db 0
+newline db 10
+section .text
+global _start
+_start:
+mov al, 61
+ROR al, 1 ; Aplicar ROR 1 vez
+mov [char], al
+; Escribir carácter
+mov eax, 4
+mov ebx, 1
+mov ecx, char
+mov edx, 1
+int 0x80
+; Salto de línea
+mov eax, 4
+
+mov ebx, 1
+mov ecx, newline
+mov edx, 1
+int 0x80
+; Salir
+mov eax, 1
+xor ebx, ebx
+int 0x80

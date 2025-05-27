@@ -1,0 +1,83 @@
+; ====== MACRO PARA IMPRIMIR UNA CADENA ======
+%macro print_str 2
+mov eax, 4 ; syscall 4: sys_write
+mov ebx, 1 ; descriptor de salida estándar (stdout)
+mov ecx, %1 ; dirección de la cadena a imprimir
+mov edx, %2 ; longitud de la cadena
+int 0x80 ; llamada al sistema
+%endmacro
+; ====== SECCIÓN DE DATOS ======
+section .data
+array dd 1, 2, 3, 4, 5 ; Arreglo de enteros (4 bytes c/u)
+msg db "Suma: ", 0 ; Cadena a mostrar antes del número
+newline db 10 ; Salto de línea
+buffer db 10 dup(0) ; Espacio para el número convertido (itoa)
+; ====== SECCIÓN DE CÓDIGO ======
+section .text
+global _start
+_start:
+; Inicialización de registros
+mov ecx, 0 ; ecx será el índice del arreglo
+mov eax, 0 ; eax acumulará la suma
+suma_bucle:
+; Acceder al arreglo: array[ecx]
+mov ebx, [array + ecx*4] ; Referencia indirecta
+add eax, ebx ; Sumar a eax
+inc ecx ; Siguiente índice
+cmp ecx, 5 ; ¿Llegamos al final del arreglo?
+jl suma_bucle ; Si no, repetir bucle
+; eax contiene la suma final
+; Mostrar mensaje "Suma: "
+print_str msg, 6
+; Convertir número (en eax) a cadena
+mov ebx, buffer ; Dirección del buffer para guardar el número
+call itoa ; Llamar a rutina de conversión
+; Imprimir número como cadena
+mov edx, eax ; eax contiene longitud de la cadena convertida
+mov ecx, buffer ; cadena ya en formato ASCII
+mov ebx, 1 ; salida estándar
+mov eax, 4 ; sys_write
+int 0x80
+; Imprimir salto de línea
+print_str newline, 1
+
+; Salir del programa
+mov eax, 1 ; syscall: sys_exit
+xor ebx, ebx ; código de salida 0
+int 0x80
+; ====== RUTINA itoa: convierte entero a cadena ASCII ======
+itoa:
+; Entrada: eax = número, ebx = buffer donde escribir
+; Salida: eax = longitud de la cadena escrita
+push ecx
+push edx
+push esi
+mov ecx, 0 ; contador de dígitos
+mov esi, ebx ; puntero temporal a buffer
+cmp eax, 0
+jne .convertir
+; Caso especial: si eax == 0
+mov byte [esi], '0'
+inc ecx
+jmp .fin
+.convertir:
+mov edx, 0
+.repetir:
+mov ebx, 10
+div ebx ; divide eax entre 10, resultado en eax, resto en edx
+add dl, '0' ; convertir resto en carácter ASCII
+push dx ; guardar el carácter temporalmente
+inc ecx
+test eax, eax
+jnz .repetir
+.fin:
+mov eax, ecx ; guardar longitud de la cadena
+.copiar:
+pop dx
+mov [esi], dl
+inc esi
+loop .copiar
+pop esi
+pop edx
+pop ecx
+ret
