@@ -1,0 +1,21 @@
+Fecha (dd/mm/yyyy):
+fecha db "25/12/2025", 0
+Acceso:
+mov al, [fecha] ; Día decenas
+mov al, [fecha+1] ; Día unidades
+Correo electrónico:
+correo db "usuario@correo.com", 0
+Dirección completa:
+direccion:
+calle db "Av. Siempre Viva", 0
+numero db "742", 0
+colonia db "Springfield", 0
+CURP:
+curp db "GOML010101HDFRRNA0", 0
+Arreglo de fechas:
+fechas db "01/01/2024",0, "02/01/2024",0, "03/01/2024",0
+Acceso:
+mov esi, fechas
+call imprimir_cadena
+add esi, 11
+call imprimir_cadena
