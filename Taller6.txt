@@ -1,0 +1,42 @@
+;a) Modificar caracteres (A, : ,=, ?, _)
+section .data
+num1 db 32
+num2 db 33
+result db 0
+section .text
+global _start
+_start:
+mov al, [num1] ; AL = 32
+add al, [num2] ; AL = 65 ('A')
+mov [result], al
+mov eax, 4
+mov ebx, 1
+mov ecx, result
+mov edx, 1
+int 0x80
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
+;b) Modificar caracteres (B, x ,+, ', {)
+
+section .data
+num1 db 70
+num2 db 4
+result db 0
+section .text
+
+global _start
+_start:
+mov al, [num1] ; AL = 70
+sub al, [num2] ; AL = 66 ('B')
+mov [result], al
+mov eax, 4
+mov ebx, 1
+mov ecx, result
+mov edx, 1
+int 0x80
+mov eax, 1
+xor ebx, ebx
+int 0x80
+
